@@ -1,8 +1,0 @@
-{
-    "terminal.integrated.env.linux": {
-        "workspaceFolder": "${workspaceFolder}"
-    }
-    "terminal.integrated.env.windows": {
-        "workspaceFolder": "${workspaceFolder}"
-    }
-}
