@@ -2,8 +2,10 @@
 # which contains everything we need to run Jekyll
 # normally. Jekyll Builder is built upon Ruby's image
 # which is built upon Alpine Linux.
-FROM jekyll/builder:latest AS base
+ARG JEKYLL_BASE_IMAGE=jekyll/builder:latest
+FROM $JEKYLL_BASE_IMAGE
 
+# Note: Give your Docker instance 4 CPUs and 8GB RAM minimum or the build may randomly fail
 
 ## Sections of this script for building GHC-Up are modified from:
 ## https://github.com/jkachmar/alpine-haskell-stack/blob/master/Dockerfile
@@ -11,9 +13,6 @@ FROM jekyll/builder:latest AS base
 ###################################################
 #   GHC-Up
 ###################################################
-
-# Note: This layer will also be used as the base for stack-tooling
-FROM base as ghc-up
 
 # Must be one of 'gmp' or 'simple'; used to build GHC with support for either
 # 'integer-gmp' (with 'libgmp') or 'integer-simple'
